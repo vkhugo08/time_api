@@ -1,0 +1,14 @@
+  /api/v1/users  
+- GET
+ /api/v1/users/:id/  
+ - GET  
+ - PUT  
+ - DELETE  
+ /api/v1/timezones  
+ - GET 
+ /api/v1/timezones/:name 
+ - GET  
+ /api/v1/auth/login  
+ - POST 
+ /api/v1/auth/register  
+ - POST
