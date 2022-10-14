@@ -3,7 +3,6 @@ const { DataTypes } = require("sequelize");
 const { db } = require("../utils/database");
 
 const Users = require('./user.model')
-const TimeZone = require('./time_zone.model')
 
 const UserTimes = db.define('user_time', {
     id: {
@@ -20,14 +19,10 @@ const UserTimes = db.define('user_time', {
         },
         field: 'user_id'
     },
-    timeZoneId: {
+    timeZone: {
         allowNull: false,
-        type: DataTypes.UUID,
-        references: {
-            model: TimeZone,
-            key: 'id'
-        },
-        field: 'time_zone_id'
+        type: DataTypes.STRING,
+        field: 'time_zone'
     },
 });
 

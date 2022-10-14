@@ -1,8 +1,9 @@
 const express = require('express')
 const initModel  = require('./models/initModels')
 const { db } = require('./utils/database')
-
 const app = express()
+//* Aplicando rutas
+const userRouter = require('./users/user.router').router
 
 app.use(express.json())
 
@@ -28,6 +29,8 @@ if(process.env.NODE_ENV === 'production'){
     })
     .catch(err => console.log(err))
 }
+//* peticiones de rutas
+app.use('/api/v1/users', userRouter);
 app.get('/', (req, res) =>{
     res.status(200).json({message: 'welcome to me api'})
 })
