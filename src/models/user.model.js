@@ -2,6 +2,8 @@ const { DataTypes } = require("sequelize");
 
 const { db } = require("../utils/database");
 
+const Roles = require('./roles.model')
+
 const Users = db.define("users", {
   id: {
     primaryKey: true,
@@ -32,6 +34,15 @@ const Users = db.define("users", {
     allowNull: false,
     type: DataTypes.DATEONLY,
     field: "birthday_date",
+  },
+  roleId: {
+    allowNull: false,
+    type: DataTypes.UUID,
+    references: {
+      model: Roles,
+      key: 'id'
+    },
+    field: "role_id"
   },
   createdAt: {
     type: DataTypes.DATE,
